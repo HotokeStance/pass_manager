@@ -4,6 +4,12 @@
 <dict>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
+ 	<key>NSFaceIDUsageDescription</key>
+	<string></string>
+	<key>NSCameraUsageDescription</key>
+	<string>このアプリは、QRコードをスキャンするためにカメラへのアクセスが必要です。</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>このアプリは、フォトライブラリからQRコードを取得するために写真へのアクセスが必要です。</string>
 	<key>CFBundleDisplayName</key>
 	<string>Pass Manager</string>
 	<key>CFBundleExecutable</key>
