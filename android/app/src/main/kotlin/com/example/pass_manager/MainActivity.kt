@@ -1,4 +1,4 @@
-package com.example.pass_manager
+package com.myapp.pass_manager
 
 import io.flutter.embedding.android.FlutterActivity
 import io.flutter.embedding.android.FlutterFragmentActivity
