@@ -6,4 +6,10 @@ class AppTextStyles {
     fontWeight: FontWeight.w400,
     fontSize: 14,
   );
+
+  static const buttonTextStyle = TextStyle(
+    color: Colors.white,
+    fontWeight: FontWeight.w400,
+    fontSize: 14,
+  );
 }

@@ -143,24 +143,51 @@ class QrCodeScannerScreenState extends ConsumerState<QrCodeScannerScreen>
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      ElevatedButton(
-                        onPressed: () {
-                          provider.cancelForceWrite();
-                        },
-                        child: const Text('キャンセル'),
+                      SizedBox(
+                        width: 100,
+                        child: ElevatedButton(
+                          onPressed: () {
+                            provider.cancelForceWrite();
+                          },
+                          style: ElevatedButton.styleFrom(
+                            backgroundColor: Colors.grey,
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(10),
+                            ),
+                          ),
+                          child: Text(
+                            'キャンセル',
+                            style: AppTextStyles.buttonTextStyle.copyWith(
+                              fontSize: 10,
+                            ),
+                          ),
+                        ),
                       ),
                       const SizedBox(
                         width: 16,
                       ),
-                      ElevatedButton(
-                        onPressed: () {
-                          provider.savePassData(
-                            qrData: scanValue,
-                            context: context,
-                          );
-                        },
-                        child: const Text('OK'),
-                      ),
+                      SizedBox(
+                        width: 100,
+                        child: ElevatedButton(
+                          onPressed: () {
+                            provider.savePassData(
+                              qrData: scanValue,
+                              context: context,
+                            );
+                          },
+                          style: ElevatedButton.styleFrom(
+                            backgroundColor:
+                                const Color.fromARGB(255, 0, 128, 255),
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(10),
+                            ),
+                          ),
+                          child: const Text(
+                            'OK',
+                            style: AppTextStyles.buttonTextStyle,
+                          ),
+                        ),
+                      )
                     ],
                   ),
                 ],

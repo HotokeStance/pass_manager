@@ -65,4 +65,10 @@ class HomeStateNotifier extends StateNotifier<HomeState> {
   void updateInputValue(String value) {
     state = state.copyWith(inputValue: value);
   }
+
+  Future<void> deleteValue(String key) async {
+    await _secureStorageHelper.delete(key: key);
+
+    await getSecureStorage();
+  }
 }

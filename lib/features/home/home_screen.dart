@@ -123,6 +123,87 @@ class _ListItemWidget extends HookConsumerWidget {
         );
         ScaffoldMessenger.of(context).showSnackBar(snackBar);
       },
+      onLongPress: () async {
+        final isDelete = await showDialog<bool>(
+          context: context,
+          builder: (context) {
+            return SimpleDialog(
+              children: [
+                SizedBox(
+                  height: 140,
+                  child: Column(
+                    mainAxisSize: MainAxisSize.min,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      const Text(
+                        'このデータを削除しますか？',
+                        style: AppTextStyles.basic14TextStyle,
+                      ),
+                      const SizedBox(
+                        height: 32,
+                      ),
+                      Row(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          SizedBox(
+                            width: 100,
+                            child: ElevatedButton(
+                              onPressed: () {
+                                Navigator.pop(context, false);
+                              },
+                              style: ElevatedButton.styleFrom(
+                                backgroundColor: Colors.grey,
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(10),
+                                ),
+                              ),
+                              child: Text(
+                                'キャンセル',
+                                style: AppTextStyles.buttonTextStyle.copyWith(
+                                  fontSize: 10,
+                                ),
+                              ),
+                            ),
+                          ),
+                          const SizedBox(
+                            width: 16,
+                          ),
+                          SizedBox(
+                            width: 100,
+                            child: ElevatedButton(
+                              onPressed: () {
+                                Navigator.pop(context, true);
+                              },
+                              style: ElevatedButton.styleFrom(
+                                backgroundColor: Colors.red,
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(10),
+                                ),
+                              ),
+                              child: const Text(
+                                '削除',
+                                style: AppTextStyles.buttonTextStyle,
+                              ),
+                            ),
+                          ),
+                        ],
+                      )
+                    ],
+                  ),
+                ),
+              ],
+            );
+          },
+        );
+
+        if (isDelete == null) {
+          return;
+        }
+
+        if (isDelete) {
+          provider.deleteValue(title);
+        }
+      },
       child: Container(
         padding: const EdgeInsets.all(16),
         decoration: BoxDecoration(
